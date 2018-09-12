@@ -1,5 +1,6 @@
 <template>
   <div>
+    
   <el-input v-model="tableDataName" placeholder="请输入姓名" style="width:240px"></el-input>
   <el-button type="primary" @click="doFilter">搜索</el-button>
   <!-- <el-button type="primary" @click="openData">展示数据</el-button> -->
