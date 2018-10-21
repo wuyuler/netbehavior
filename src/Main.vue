@@ -20,6 +20,10 @@
       
       <div>设计软件数据分析展示</div>
     </el-menu-item>
+     <el-menu-item index="timedata">
+      
+      <div>时间分析展示</div>
+    </el-menu-item>
    
   
 

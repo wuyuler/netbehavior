@@ -22,9 +22,6 @@
     
 </el-row>
 <el-row>
-    
-
-   
         <el-col :span="8" 
         >
         <div id="myChartEdu" :style="{width: '400px', height: '400px'}" >
@@ -75,12 +72,6 @@ export default {
     
   },
   methods:{
-    getEdu(){
-
-    },
-    getIsCity(){
-
-    },
     getDataToPie(url,chart,title){
        var self = this;
       this.$ajax({
