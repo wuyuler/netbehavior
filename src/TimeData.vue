@@ -38,13 +38,13 @@ export default {
       ).then(
         function(res){
           console.log(res);
-      self.drawline(res.data.xValue,res.data.yValue,title,element_id)
+          self.drawline(res.data.xValue,res.data.yValue,title,element_id)
       
-}
+          }
       )
-.catch(function(err){
-console.log(err);
-})
+        .catch(function(err){
+        console.log(err);
+        })
     },
     //绘制柱状图,通过访问后端得到的数据
     drawline(X,Y,title,element_id){

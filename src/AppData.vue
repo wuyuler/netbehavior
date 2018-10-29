@@ -13,12 +13,12 @@
       label="姓名">
     </el-table-column>
     <el-table-column label="操作">
-         <template slot-scope="scope">
-        
-       <el-button
+        <template slot-scope="scope">
+        <el-button
           size="mini"
-          @click="handleEdit(scope.$index, scope.row)">在线情况</el-button>
-      </template>
+          @click="handleEdit(scope.$index, scope.row)">在线情况
+        </el-button>
+        </template>
     </el-table-column>
   </el-table>
   <el-pagination
@@ -47,10 +47,9 @@ export default {
 
   created(){
     this.getAppName()
-    
   },
   mounted(){
-   this.$refs.dialog.open();
+    this.$refs.dialog.open();
     this.$refs.dialog.close();
   },
   data(){
@@ -67,20 +66,19 @@ export default {
       myChart:null
     }
   },
- 
   methods:{
     initData(data){
       data.forEach((value)=>{
         this.tableDataBegin.push({name:value})
       })
       this.totalItems = this.tableDataBegin.length;
-    if (this.totalItems > this.pageSize) {
-      for (let index = 0; index < this.pageSize; index++) {
-        this.tableDataEnd.push(this.tableDataBegin[index]);
+      if (this.totalItems > this.pageSize) {
+        for (let index = 0; index < this.pageSize; index++) {
+          this.tableDataEnd.push(this.tableDataBegin[index]);
+        }
+      } else {
+          this.tableDataEnd = this.tableDataBegin;
       }
-    } else {
-      this.tableDataEnd = this.tableDataBegin;
-    }
       
     },
     getAppName(){
@@ -92,15 +90,12 @@ export default {
       }
       ).then(
         function(res){
-     //console.log(res)
-     self.initData(res.data)
-     
-      
-}
-      )
-.catch(function(err){
-console.log(err);
-})
+          //console.log(res)
+          self.initData(res.data) 
+        }
+      ).catch(function(err){
+      console.log(err);
+      })
     },
     drawline(name,xData,data){
        // 基于准备好的dom，初始化echarts实例
@@ -137,6 +132,7 @@ console.log(err);
             }]
         });
     },
+
     //前端搜索功能需要区分是否检索,因为对应的字段的索引不同
     //用两个变量接收currentChangePage函数的参数
     doFilter() {
@@ -200,26 +196,25 @@ console.log(err);
 
       //读取数据,填充到柱状图
       getDataToBar(url,name){
-       var self = this;
-      this.$ajax({
-        method:'post',
-        url:url,
-        responseType:'json',
-        params:{
-          appName:name,
-         
+        var self = this;
+        this.$ajax({
+          method:'post',
+          url:url,
+          responseType:'json',
+          params:{
+            appName:name,
+          
+          }
         }
-      }
-      ).then(
+        ).then(
         function(res){
-      console.log(res.data)
-     self.drawline(name,res.data.xValue,res.data.value);
-}
-      )
-.catch(function(err){
-console.log(err);
-})
-    }
+          console.log(res.data)
+          self.drawline(name,res.data.xValue,res.data.value);
+        }
+        ).catch(function(err){
+          console.log(err);
+          })
+        }
   
 
   }

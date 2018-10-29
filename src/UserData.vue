@@ -94,20 +94,19 @@ console.log(err);
         let myChart = this.$echarts.init(document.getElementById(id))
         // 绘制图表
         myChart.setOption({
-          title: { text: title },
-
+            title: { text: title },
             series: [{
                 label: {
-        normal: {
-            show: true,
-            //position: 'inside',
-            formatter: '{b}'//多值的嵌套
-        },
-    },
-                radius:'55%',
-                name: name,
-                type: 'pie',
-                data:data
+                    normal: {
+                        show: true,
+                        //position: 'inside',
+                        formatter: '{b}'//多值的嵌套
+                    },
+                    },
+            radius:'55%',
+            name: name,
+            type: 'pie',
+            data:data
             }]
 
         });
