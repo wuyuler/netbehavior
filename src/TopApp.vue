@@ -23,8 +23,8 @@ export default {
     }
   },
   created(){
-     let info = this.$router.history.current.params.info;
-	  //  let info = this.$route.params.info;
+      let info = this.$router.history.current.params.info;
+    //防止F5刷新丢失信息
       if (info) {
         sessionStorage.setItem("detailItem12", info);
       }
