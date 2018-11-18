@@ -88,7 +88,7 @@ export default {
         },
       toUserPage(userid){
             console.log(userid)
-            this.$router.push({name:'TopApp',params:{'info':userid}});
+            this.$router.push({name:'FriendRecommand',params:{'info':userid}});
         }
     
   }

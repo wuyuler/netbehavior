@@ -16,27 +16,28 @@ export default {
       fav_app_data:[12,56,77],
       userApp1:[1,2,3],
       userApp2:[2,3,5],
-      //userapp_title:'username',
-      // area_perosn1:[{name:'老师',value:3},{name:'学生',value:3},{name:'白领',value:5}],
-      // area_perosn2:[{name:'老师',value:4},{name:'学生',value:11},{name:'白领',value:33}]
-
     }
   },
   created(){
-      let info = this.$router.history.current.params.info;
+      let info = this.$router.history.current.params.userid;
     //防止F5刷新丢失信息
       if (info) {
-        sessionStorage.setItem("detailItem12", info);
+        sessionStorage.setItem("detailItem13", info);
       }
-      let userid = sessionStorage.getItem("detailItem12") + '';
+      let userid = sessionStorage.getItem("detailItem13") + '';
       this.userid = userid;
   },
   mounted() {
+
     this.getTopApp("/appcount/getTopApp",this.userid,5)
     //this.drawUserApp(this.title,this.area_perosn1);
   },
+  beforeRouteLeave(to, from, next) {
+   // 设置下一个路由的 meta
+   to.meta.keepAlive = true;  // 让页面3缓存，即不刷新
+   next();
+  },
   methods: {
-
     getTopApp(url,userid,num){
       var self = this;
       this.$ajax({
