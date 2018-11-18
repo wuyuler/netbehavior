@@ -8,6 +8,11 @@ import echarts from 'echarts'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import axios from 'axios'
+//导入名片组件
+import usercard from './components/usercard/index.js'
+Vue.use(usercard);
+
+
 //将 axios 改写为 Vue 的原型属性
 Vue.prototype.$ajax = axios
 Vue.config.productionTip = false
