@@ -18,7 +18,7 @@ Vue.prototype.$ajax = axios
 Vue.config.productionTip = false
 Vue.prototype.$echarts = echarts
 Vue.use(ElementUI);
-axios.defaults.baseURL="http://localhost:8081/";
+axios.defaults.baseURL="http://localhost:8082/";
 
 /* eslint-disable no-new */
 new Vue({

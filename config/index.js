@@ -9,7 +9,7 @@ module.exports = {
 
     // Paths
     assetsSubDirectory: 'static',
-    assetsPublicPath: './',
+    assetsPublicPath: '/',
     proxyTable: {},
 
     // Various Dev Server settings
@@ -49,7 +49,7 @@ module.exports = {
      * Source Maps
      */
 
-    productionSourceMap: false,//打包发布修改
+    productionSourceMap: true,//打包发布修改
     // https://webpack.js.org/configuration/devtool/#production
     devtool: '#source-map',
 
